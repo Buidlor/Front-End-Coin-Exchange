@@ -11,8 +11,9 @@ function App() {
         <h1 className='App-title'>
           My Coin Exchange
         </h1>
+        <img src = {logo} alt ="React logo 2"  className="App-logo-2" /> 
       </header>
-      <table>
+      <table className='coin-table'>
         <thead>
           <tr>
             <th>Name</th>
@@ -21,12 +22,13 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          <Coin name = "Bitcoin" ticker="BTC" price="$40000"/>
-          <Coin name = "Ethereum" ticker="ETH" price="$3000"/>
+          <Coin name = "Bitcoin" ticker="BTC" price={40000.00}/>
+          <Coin name = "Ethereum" ticker="ETH" price={3000.00}/>
+          <Coin name = "Terra" ticker="LUNA" price={101.00} />
+          <Coin name = "Solana" ticker = "SOL" price={151.00}/>
         </tbody>
       </table>
     </div>
   );
 }
-
 export default App;
