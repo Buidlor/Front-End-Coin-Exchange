@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Coin from './components/Coin/Coin'
+import AccountBalance from'./components/AccountBalance/AccountBalance'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         </h1>
         <img src = {logo} alt ="React logo 2"  className="App-logo-2" /> 
       </header>
+      <AccountBalance amount={10000}/>
       <table className='coin-table'>
         <thead>
           <tr>
