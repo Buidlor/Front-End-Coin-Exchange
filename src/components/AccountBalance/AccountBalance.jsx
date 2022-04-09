@@ -3,13 +3,18 @@ import PropTypes from 'prop-types'
 //import './AccountStyle.css'
 import styled from 'styled-components'
 
+const Section = styled.section `
+font-size: 2rem;
+text-align: center;
+padding-top: 2rem;
 
+`
 export default class AccountBalance extends Component {
   render() {
     return (
-      <section className = 'styled' > 
-        ${this.props.amount}
-      </section>
+      <Section> 
+        Balance: ${this.props.amount}
+      </Section>
     )
   }
 }
