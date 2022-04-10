@@ -1,10 +1,14 @@
 import React from 'react';
-
-import './App.css';
 import Coinlist from './components/Coinlist/Coinlist';
 import AccountBalance from'./components/AccountBalance/AccountBalance';
 import Header from './components/Header/Header';
+import styled from 'styled-components';
 
+const Div = styled.div ` 
+  text-align: center;
+  background-color: rgb(83, 77, 155);
+  color: #61dafb;
+`
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -41,13 +45,11 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="App">
-        
+      <Div>
         <Header />
         <AccountBalance amount={this.state.balance}/>
         <Coinlist coinData = {this.state.coinData}/>
-       
-      </div>
+      </Div>
     );
   }
 }
