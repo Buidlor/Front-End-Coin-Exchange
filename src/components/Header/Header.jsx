@@ -35,6 +35,6 @@ export default class Header extends Component {
         </h1>
         <Img src = {logo} alt ="logo is here" /> 
       </HEADER>
-    )
+    );
   }
 }
