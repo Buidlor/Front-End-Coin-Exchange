@@ -59,6 +59,7 @@ class App extends React.Component {
       }
     });
   }
+ 
   handleRefresh(valueChangeTicker){
     const newCoinData = this.state.coinData.map(function({ticker, name, price, balance}){
       let newPrice = price; 
