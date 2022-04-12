@@ -31,7 +31,7 @@ export default class Header extends Component {
     <HEADER>
         <Img src = {logo} alt ="logo is here" /> 
         <h1>
-          My Coin Exchange
+          My Coin Portfolio
         </h1>
         <Img src = {logo} alt ="logo is here" /> 
       </HEADER>
