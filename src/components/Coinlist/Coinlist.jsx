@@ -16,6 +16,8 @@ export default class Coinlist extends Component {
             <th>Name</th>
             <th>Ticker</th>
             <th>Price</th>
+            <th>Balance</th>
+            <th>Refresh</th>
           </tr>
         </thead>
         <tbody>
@@ -25,7 +27,8 @@ export default class Coinlist extends Component {
                   handleRefresh={this.props.handleRefresh}
                   name={value.name} 
                   ticker={value.ticker} 
-                  price={value.price}/>)
+                  price={value.price}
+                  balance = {value.balance}/>)
           }
         </tbody>
         </Table>

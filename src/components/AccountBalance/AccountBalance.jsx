@@ -9,15 +9,22 @@ padding-top: 2rem;
 
 `
 export default class AccountBalance extends Component {
+
   render() {
+    const buttonText = this.props.showBalance ? 'Hide Balance' : 'Show Balance' ;
+    let content = null;
+    if (this.props.showBalance){
+      content = <>Balance: ${this.props.amount}</>
+
+    }
     return (
       <Section> 
-        Balance: ${this.props.amount}
+        {/* {content} */}
+        <button onClick={this.handlePress}>{buttonText}</button>
       </Section>
     )
   }
 }
-
 
 AccountBalance.propTypes = {
     amount: PropTypes.number.isRequired
