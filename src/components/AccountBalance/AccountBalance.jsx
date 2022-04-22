@@ -7,9 +7,8 @@ font-size: 2rem;
 text-align: center;
 padding-top: 2rem;
 `
-
-
 export default function AccountBalance(props)  {
+  
   const handlePress = (event) => {
     event.preventDefault();
     props.handleHide(props.showBalance);
@@ -22,7 +21,7 @@ export default function AccountBalance(props)  {
   return (
     <Section> 
       {content} <br />
-      <button onClick={props.handlePress}>{buttonText}</button>
+      <button onClick={handlePress}>{buttonText}</button>
     </Section>
     
   );

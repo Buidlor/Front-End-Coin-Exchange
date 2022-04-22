@@ -8,8 +8,7 @@ const Td = styled.td `
   width: 25vh;
 `
 
-export default function  Coin(props) {
-
+export default function Coin(props) {
 
   const handleClick = (event) => {
     event.preventDefault();
