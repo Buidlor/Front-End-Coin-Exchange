@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -9,24 +9,23 @@ padding-top: 2rem;
 `
 
 
-export default class AccountBalance extends Component {
-  handlePress(event){
+export default function AccountBalance(props)  {
+  const handlePress = (event) => {
     event.preventDefault();
-    this.props.handleHide(this.props.showBalance);
+    props.handleHide(props.showBalance);
   }
-  render() {
-    let content;
-    const buttonText = this.props.showBalance ? 'Hide Balance' : 'Show Balance';                      //showbalance true or false
-    this.props.showBalance ? content = <>Balance: ${this.props.amount}</> :  content = null;         //true = show balance : false = hide balance
+  
+  let content;
+  const buttonText = props.showBalance ? 'Hide Balance' : 'Show Balance';                      //showbalance true or false
+  props.showBalance ? content = <>Balance: ${props.amount}</> :  content = null;         //true = show balance : false = hide balance
 
-    return (
-      <Section> 
-        {content} <br />
-        <button onClick={this.props.handleBalanceVisibilityChange}>{buttonText}</button>
-      </Section>
-      
-    );
-  }
+  return (
+    <Section> 
+      {content} <br />
+      <button onClick={props.handlePress}>{buttonText}</button>
+    </Section>
+    
+  );
 }
 
 
