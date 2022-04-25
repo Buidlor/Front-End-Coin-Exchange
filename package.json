@@ -14,7 +14,15 @@
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
+<<<<<<< HEAD
   "homepage": "https://buidlor.github.io/Front-End-Coin-Exchange",
+=======
+<<<<<<< HEAD
+  "homepage": "https://buidlor.github.io/Front-End-Coin-Exchange",
+=======
+  "homepage": "https://buidlor.github.io/coin-portfolio",
+>>>>>>> 1bc89d965e9d63e72a2105334284fba245a9f896
+>>>>>>> f56596dd31fdd5b967760efe8814997e8a94d0e0
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
