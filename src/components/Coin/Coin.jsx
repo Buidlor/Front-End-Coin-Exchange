@@ -5,27 +5,55 @@ import styled from 'styled-components';
 const Td = styled.td `
   border: 2px solid ;
   border-color: rgb(213, 213, 243);   
-  width: 25vh;
-`
+  width: 16vh;
+`;
+const TdControls = styled(Td)`
+  width: 34vw;  
+`;
+
+const TdName = styled(Td)`
+  width: 24vw;
+`;
+
+const Button = styled.button `
+  font-size: 12px;
+  margin: 3px 5px 3px;
+`;
 
 export default function Coin(props) {
 
-  const handleClick = (event) => {
+  const handleRefresh = (event) => {
     event.preventDefault();
     props.handleRefresh(props.ticker);
    }
+  const handleBuy = (event) =>{
+    event.preventDefault();
+    props.handleTransaction(true, props.ticker)
+  }
+  const handleSell = (event) =>{
+    event.preventDefault();
+    props.handleTransaction(false, props.ticker)
+  }
 
     return (
       <tr>
-        <Td>{props.name}</Td>
-        <Td>{props.ticker}</Td>
-        <Td>${props.price}</Td>
-        {props.showBalance ? <Td>{props.balance}</Td> : null}
-        <Td>
+        <TdName>{props.name}</TdName>
+        <TdName>{props.ticker}</TdName>
+        <TdName>${props.price}</TdName>
+        <TdName>{props.showBalance ? props.balance : '-'}</TdName>
+        <TdControls>
           <form action ="#" method ="POST">
-            <button onClick={handleClick}>Refresh</button>
+            <Button className = 'btn btn-info' onClick={handleRefresh}>
+              Refresh
+            </Button>
+            <Button className = 'btn btn-success' onClick={handleBuy}>
+              Buy
+            </Button>
+            <Button className = 'btn btn-danger' onClick={handleSell}>
+              Sell
+            </Button>
           </form>
-        </Td>
+        </TdControls>
       </tr>
     );
   }

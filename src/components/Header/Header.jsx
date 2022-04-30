@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import logo from './logo.svg';
 import styled from 'styled-components'
+
  
 const HEADER = styled.header ` 
 background-color: #282c34;
-min-height: 30vh;
+min-height: 20vh;
 display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
-color: white;
 font-size: 2rem;
+`
+const H1 = styled.h1 `
+  color: white;
 `
 const Img = styled.img `
     height: 6rem;
@@ -28,13 +31,15 @@ const Img = styled.img `
 export default class Header extends Component {
   render() {
     return (
-    <HEADER>
+      <HEADER>
         <Img src = {logo} alt ="logo is here" /> 
-        <h1>
-          Coin Portfolio
-        </h1>
+        <H1>
+          Coin Portfolio 
+        </H1>
         <Img src = {logo} alt ="logo is here" /> 
+        
       </HEADER>
+      
     );
   }
 }

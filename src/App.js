@@ -4,19 +4,20 @@ import AccountBalance from'./components/AccountBalance/AccountBalance';
 import Header from './components/Header/Header';
 import styled from 'styled-components';
 import axios from 'axios';
-//import { element, symbol } from 'prop-types';
+//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootswatch/dist/lux/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/js/all';
 
-const Div = styled.div ` 
+const Div = styled.div`  
   text-align: center;
   background-color: rgb(83, 77, 155);
   color: #61dafb;
+
 `
-
-
 function App(props) {
 
   const [balance, setBalance] = useState(10000);
-  const [showBalance, setShowbalance] = useState(true); 
+  const [showBalance, setShowbalance] = useState(false); 
   const [coinData, setCoinData] = useState([]);
 
 
@@ -48,9 +49,27 @@ function App(props) {
     }
   });
 
-
   const handleHide = () => {
     setShowbalance(oldValue => !oldValue);
+  }
+
+  const handleBrrrr = () =>{
+    setBalance(oldBalance => oldBalance + 1000);
+  }
+
+  const handleTransaction = (isBuy, valueChangeTicker) => {
+    var balanceChange = isBuy ? 1 : -1;
+    const newCoinData = coinData.map(function(values){
+      let newValues = {...values};
+      if(valueChangeTicker === values.ticker){
+        newValues.balance += balanceChange;
+        setBalance(oldBalance => oldBalance - balanceChange * newValues.price);
+      }
+      console.log(newValues);
+      return newValues;
+    });
+    
+    setCoinData(newCoinData);
   }
  
   const handleRefresh = async (valueChangeTicker) => {
@@ -58,21 +77,16 @@ function App(props) {
     let response2 = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=2&sparkline=false');
     let newPrice = response.data
     .concat(response2.data)
-    .filter(function(filt){
-      return filt.symbol === valueChangeTicker  ;    
+    .find(function(find){
+      return find.symbol === valueChangeTicker  ;    
     })  
-    .map(function(coin){
-      return coin.current_price;
-    });  
-  
     const newCoinData = coinData.map(function(values){
       let newValues = { ...values };
       if(valueChangeTicker === values.ticker ){
-        newValues.price = newPrice;
+        newValues.price = newPrice.current_price;
       }
         return newValues;
     });
-    
     setCoinData(newCoinData);
   }
 
@@ -82,11 +96,13 @@ function App(props) {
       <AccountBalance 
         amount={balance}
         showBalance = {showBalance} 
-        handleHide ={handleHide} />
-
+        handleHide = {handleHide}
+        handleBrrrr ={handleBrrrr} />
+         
       <Coinlist 
         coinData = {coinData} 
         handleRefresh={handleRefresh}
+        handleTransaction ={handleTransaction}
         showBalance = {showBalance} />
     </Div>
   );
