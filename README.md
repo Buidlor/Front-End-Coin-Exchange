@@ -1,7 +1,11 @@
 # Coin Portfolio
 
-Coin portfolio/exchange created with react. Using the [coingecko](https://www.coingecko.com/) API.
-The portfolio contains a custom choice of coins. in this case it is BTC, ETH, Luna, Avax and Divi.
+- Link to the web-app **[Here](https://buidlor.github.io/Front-End-Coin-Exchange/)**
+- Coin portfolio/exchange created with react. Using the [coingecko](https://www.coingecko.com/) API. The portfolio contains a fixed choice of coins. in this case it is BTC, ETH, Luna, Avax and Divi.
+
+#### Screensot:
+
+![app screenshot](/portScreenshot.PNG)
 
 ## Functions:
 
